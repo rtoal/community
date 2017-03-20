@@ -27,18 +27,3 @@ module.exports = {
     return queryInterface.dropTable('StaffMemberRoles');
   },
 };
-
-  //     updatedAt: {
-  //       allowNull: false,
-  //       type: Sequelize.DATE
-  //     }
-  //   }).then(() => {
-  //     // Create Unique CompoundIndex
-  //     let sql = `CREATE UNIQUE INDEX "PlayerTeamCompoundIndex"
-  //             ON public."PlayerTeam"
-  //             USING btree
-  //             ("playerId", "teamId");
-  //           `;
-  //     return queryInterface.sequelize.query(sql, {raw: true});
-  //     });
-  // },
