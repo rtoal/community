@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'caseManagerId',
           as: 'clients',
         });
+        StaffMember.belongsToMany(models.Role, {
+          through: 'StaffMemberRoles',
+          foreignKey: 'roleId',
+          otherKey: 'userId',
+        });
       },
     },
   });
