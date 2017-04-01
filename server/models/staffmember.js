@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         });
         StaffMember.belongsToMany(models.Role, {
           through: 'StaffMemberRoles',
-          foreignKey: 'roleId',
-          otherKey: 'userId',
+          foreignKey: 'staffMemberId',
+          otherKey: 'roleId',
         });
       },
     },
