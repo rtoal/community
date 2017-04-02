@@ -1,12 +1,12 @@
 module.exports = {
   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('StaffMemberRoles', {
+    return queryInterface.createTable('StaffMemberRole', {
       staffMemberId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
         references: {
-          model: 'StaffMembers',
+          model: 'StaffMember',
           key: 'id',
         },
       },
@@ -15,7 +15,7 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
         references: {
-          model: 'Roles',
+          model: 'Role',
           key: 'id',
         },
       },
@@ -24,6 +24,6 @@ module.exports = {
     });
   },
   down(queryInterface /* , Sequelize */) {
-    return queryInterface.dropTable('StaffMemberRoles');
+    return queryInterface.dropTable('StaffMemberRole');
   },
 };

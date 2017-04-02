@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
   }, {
+    freezeTableName: true,
     classMethods: {
       associate: (models) => {
         StaffMember.hasMany(models.Client, {
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
           as: 'clients',
         });
         StaffMember.belongsToMany(models.Role, {
-          through: 'StaffMemberRoles',
+          through: 'StaffMemberRole',
           foreignKey: 'staffMemberId',
           otherKey: 'roleId',
         });

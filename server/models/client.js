@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber: DataTypes.STRING,
     casePlan: DataTypes.STRING(2000),
   }, {
+    freezeTableName: true,
     classMethods: {
       associate: (models) => {
         Client.belongsTo(models.StaffMember, {
