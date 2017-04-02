@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/roles', RoleController.create);
 app.get('/roles', RoleController.findAll);
+app.delete('/roles', RoleController.deleteAll);
 
 // A catch-all route for anything the webservice does not define.
 app.get('*', (req, res) => res.status(404).send({

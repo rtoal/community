@@ -5,5 +5,16 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  Role.findAll({ attributes: ['name', 'description'] }).then(roles => res.status(200).send(roles));
+  // TODO: Support pagination
+  Role.findAll({ attributes: ['name', 'description'], order: ['name'] })
+    .then(roles => res.status(200).send(roles));
+};
+
+exports.deleteAll = (req, res) => {
+  if (process.env.NODE_ENV === 'test') {
+    Role.truncate({ cascade: true, restartIdentity: true })
+      .then(() => res.status(200).send({ message: 'No more roles' }));
+  } else {
+    res.status(403).send({ message: 'Whoa there' });
+  }
 };
